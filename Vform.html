@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .error-message {
+            color: red;
+            margin: 10px 0;
+            display: none;
+        }
+        .success-message {
+            color: green;
+            margin: 10px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>  
+        <img src="Screenshot 2025-01-30 203533.png" alt="image" width="1520" height="200">
+    </div>
+    <br>
+    <center>
+        <div class="container">
+            <h2>Donation Form</h2>
+            <div id="error-message" class="error-message"></div>
+            <div id="success-message" class="success-message"></div>
+            <div id="loading" class="loading">Submitting form...</div>
+            <form id="donationForm">
+                <!-- First Name Field -->
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <small class="error" id="firstNameError"></small>
+    
+                <!-- Last Name Field -->
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <small class="error" id="lastNameError"></small>
+    
+                <!-- Age Field -->
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age" required>
+                <small class="error" id="ageError"></small>
+    
+                <!-- Qualification Field -->
+                <label for="qualification">Qualification:</label>
+                <input type="text" id="qualification" name="qualification" required>
+                <small class="error" id="qualificationError"></small>
+    
+                <!-- City Field -->
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+                <small class="error" id="cityError"></small>
+    
+                <!-- Nationality Field -->
+                <label for="nationality">Nationality:</label>
+                <input type="text" id="nationality" name="nationality" required>
+                <small class="error" id="nationalityError"></small>
+    
+                <!-- Phone Number Field -->
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+                <small class="error" id="phoneError"></small>
+    
+                <!-- Aadhar Card Number Field -->
+                <label for="aadhar">Aadhar Card Number:</label>
+                <input type="text" id="aadhar" name="aadhar" required>
+                <small class="error" id="aadharError"></small>
+    
+                <!-- Submit Button -->
+                <button type="button" id="submitBtn" onclick="submitForm()">Donate</button>
+            </form>
+        </div>
+    </center>
+
+    <footer>
+        <div class="container1">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <hr>
+                    <p>Email: info@matrisneh.org</p>
+                    <p>Phone: +91 91011 64791</p>
+                    <p>Address: Kushiwali, PO Gaurkamath, Vadap, Karjat , Maharashtra 410201, India</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <hr>
+                    <p><a href="home page.html" style="color: white;">Home</a></p>
+                    <p><a href="aboutus.html" style="color: white;">About Us</a></p>
+                    <p><a href="Vform.html" style="color: white;">Donate</a></p>
+                    <p><a href="forms.html" style="color: white;">Volunteer</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <hr>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px;">&copy; 2025 Matri Sneh Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Add Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    
+    <script>
+        function submitForm() {
+            // Reset messages
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('error-message').textContent = '';
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('success-message').textContent = '';
+            
+            // Show loading state
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('loading').style.display = 'block';
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                age: document.getElementById('age').value,
+                qualification: document.getElementById('qualification').value,
+                city: document.getElementById('city').value,
+                nationality: document.getElementById('nationality').value,
+                phone: document.getElementById('phone').value,
+                aadhar: document.getElementById('aadhar').value
+            };
+
+            // Log the data being sent
+            console.log('Sending data to server:', formData);
+
+            fetch('http://127.0.0.1:5000/api/donation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                mode: 'cors',
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                console.log('Response status:', response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Response data:', data);
+                if (data.success) {
+                    document.getElementById('success-message').textContent = 'Form submitted successfully! Redirecting...';
+                    document.getElementById('success-message').style.display = 'block';
+                    setTimeout(() => {
+                        window.location.href = 'payment.html';
+                    }, 2000);
+                } else {
+                    throw new Error(data.message || 'Submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error details:', error);
+                document.getElementById('error-message').textContent = `Error: ${error.message || 'Failed to connect to server. Please make sure the server is running.'}`;
+                document.getElementById('error-message').style.display = 'block';
+            })
+            .finally(() => {
+                // Reset loading state
+                document.getElementById('submitBtn').disabled = false;
+                document.getElementById('loading').style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>

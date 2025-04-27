@@ -1,0 +1,166 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f8fb; /* Light blue-gray background */
+    color: #333; /* Neutral text color */
+}
+
+/* Header Image */
+div > img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    border-bottom: 4px solid #8b0000; /* Deep blue underline */
+}
+
+/* Container */
+.container {
+    width: 20%;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 10px;
+    border: 1px solid #dfe3e8; /* Soft border */
+}
+
+/* Title Styling */
+.container h2 {
+    text-align: center;
+    color: #8b0000; /* Deep blue text */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Form Labels */
+label {
+    font-size: 1rem;
+    color: #8b0000; /* Blue labels */
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+/* Input Fields */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #cfd8dc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #00509e; /* Focused border color - blue */
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 80, 158, 0.3); /* Soft blue glow on focus */
+}
+
+/* Error Messages */
+.error {
+    color: #d32f2f; /* Red error text */
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+/* Donate Button */
+button {
+    background-color: #8b0000; /* Deep blue background */
+    color: #ffffff; /* White text */
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b22222; /* Darker blue on hover */
+}
+
+/* Link Styling */
+a {
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Ensure responsiveness on smaller screens */
+    }
+
+    button {
+        width: 100%; /* Full width for buttons on smaller screens */
+    }
+}
+
+
+
+
+.container1 {
+    background-color: #b22222;
+    width: 100%;
+ 
+}
+footer {
+    position: relative;
+    background-color:white;
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.footer-section {
+    width: 30%;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    color: var(--white);
+    border-bottom: 2px solid var(--white);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: var(--white);
+    margin: 0 10px;
+    font-size: 24px;
+}
+
+.social-icons a:hover {
+    color: white;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .action-button {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    
+    .footer-section {
+        width: 100%;
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Confirmation</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Thank You for Volunteering!</h2>
+        <p>Your details have been submitted successfully. Here is what you provided:</p>
+
+        <p><strong>Name:</strong> <span id="displayName"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+        <p><strong>Phone:</strong> <span id="displayPhone"></span></p>
+        <p><strong>Age:</strong> <span id="displayAge"></span></p>
+        <p><strong>Department:</strong> <span id="displayDepartment"></span></p>
+        <p><strong>Skills:</strong> <span id="displaySkills"></span></p>
+        <p><strong>Availability:</strong> <span id="displayAvailability"></span></p>
+
+        <a href="volunteer.html">Back to Home</a>
+    </div>
+
+    <script>
+        // Retrieve data from localStorage
+        const formData = JSON.parse(localStorage.getItem("volunteerFormData"));
+    
+        // Check if data exists
+        if (formData) {
+            document.getElementById("displayName").innerText = formData.name;
+            document.getElementById("displayEmail").innerText = formData.email;
+            document.getElementById("displayPhone").innerText = formData.phone;
+            document.getElementById("displayAge").innerText = formData.age;
+            document.getElementById("displayDepartment").innerText = formData.department;
+            document.getElementById("displaySkills").innerText = formData.skills || "N/A";
+            document.getElementById("displayAvailability").innerText = formData.availability;
+    
+            // Clear the data from localStorage so that it's fresh for a new submission
+            localStorage.removeItem("volunteerFormData");
+        } else {
+            // If no data found, display a message
+            document.querySelector(".container").innerHTML = `
+                <h2>Error</h2>
+                <p>No volunteer data found. Please fill out the form first.</p>
+                <a href="volunteer.html">Go Back to Form</a>
+            `;
+        }
+    </script>
+    
+</body>
+</html>

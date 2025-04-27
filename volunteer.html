@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Form</title>
+    <link rel="stylesheet" href="form.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h2>Volunteer Registration Form</h2>
+        <p>Please fill out this form to volunteer with us.</p>
+        <form id="volunteerForm" action="/register">
+            <!-- Name Field -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            <small class="error" id="nameError"></small>
+
+            <!-- Email Field -->
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            <small class="error" id="emailError"></small>
+
+            <!-- Phone Number Field -->
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            <small class="error" id="phoneError"></small>
+
+            <!-- Age Field -->
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" min="18" required>
+            <small class="error" id="ageError"></small>
+
+            <!-- Department Selector -->
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="" disabled selected>Select a department</option>
+                <option value="education">Education</option>
+                <option value="nutrition">Nutrition</option>
+                <option value="livelihood">Livelihood</option>
+                <option value="health">Health</option>
+            </select>
+            <small class="error" id="departmentError"></small>
+
+            <!-- Skills and Experience -->
+            <label for="skills">Skills and Experience:</label>
+            <textarea id="skills" name="skills" rows="4" placeholder="Describe your skills and experience"></textarea>
+            <small class="error" id="skillsError"></small>
+
+            <!-- Availability Selector -->
+            <label for="availability">Availability:</label>
+            <select id="availability" name="availability" required>
+                <option value="" disabled selected>Select your availability</option>
+                <option value="part-time">Part-time</option>
+                <option value="full-time">Full-time</option>
+                <option value="weekends">Weekends</option>
+            </select>
+            <small class="error" id="availabilityError"></small>
+
+            <!-- Submit Button -->
+            <a href="volunteer-confirmation.html"><button type="submit">Submit</button></a>
+        </form>
+    </div>
+    <script src="validation.js"></script> <!-- Link to the JavaScript validation file -->
+
+<script>
+    // Select the form
+const form = document.getElementById('volunteerForm');
+
+// Listen for the form submit event
+form.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    // Collect data
+    const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        age: form.age.value,
+        department: form.department.value,
+        skills: form.skills.value,
+        availability: form.availability.value,
+    };
+
+    // Save data to localStorage
+    localStorage.setItem('volunteerFormData', JSON.stringify(formData));
+
+    // Redirect to confirmation page
+    window.location.href = 'volunteer-confirmation.html';
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matri Sneh Foundation</title>
+    <link rel="stylesheet" href="ext.css">
+    <style>
+        /* Red and White Theme */
+        :root {
+            --primary-red: #b22222; /* Firebrick red */
+            --darker-red: #8b0000; /* Dark red for hover states */
+            --light-red: #ffe6e6; /* Very light red for backgrounds */
+            --white: #ffffff;
+            --light-gray: #f8f8f8;
+            --dark-gray: #333333;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+        
+        .menu-bar {
+            background-color: var(--primary-red);
+        }
+        
+        .menu-bar h1.logo {
+            color: var(--white);
+        }
+        
+        .menu-bar h1.logo span {
+            color: var(--light-gray);
+        }
+        
+        .menu-bar ul li a {
+            color: var(--white);
+        }
+        
+        .menu-bar ul li a:hover {
+            background-color: var(--darker-red);
+        }
+        
+        .dropdown-menu {
+            background-color: var(--primary-red);
+        }
+        
+        .dropdown-menu ul li a:hover {
+            background-color: var(--darker-red);
+        }
+        
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        .size {
+            font-size: 40px;
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 15px;
+            color: var(--primary-red);
+        }
+        
+        .banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 5px solid var(--primary-red);
+        }
+        
+        .point {
+            font-size: 24px;
+            color: var(--primary-red);
+            margin: 20px 0;
+            list-style-type: none;
+        }
+        
+        .text {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        hr {
+            border-color: var(--primary-red);
+        }
+        
+        .image-slider {
+            overflow: hidden;
+            margin: 40px 0;
+            border-top: 3px solid var(--primary-red);
+            border-bottom: 3px solid var(--primary-red);
+            padding: 20px 0;
+            background-color: var(--light-red);
+        }
+        
+        .slide-track {
+            display: flex;
+            animation: scroll 40s linear infinite;
+        }
+        
+        .slide-track img {
+            width: 300px;
+            height: 300px;
+            margin: 0 15px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 3px solid var(--white);
+            box-shadow: 0 4px 8px rgba(178, 34, 34, 0.2);
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1500px); }
+        }
+        
+        .partners-section {
+            padding: 60px 0;
+            background-color: var(--light-red);
+            border-top: 3px solid var(--primary-red);
+            border-bottom: 3px solid var(--primary-red);
+        }
+        
+        .partner-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .partner-logo {
+            width: 250px;
+            height: auto;
+            margin: 20px;
+            transition: transform 0.3s ease;
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(178, 34, 34, 0.2);
+        }
+        
+        .partner-logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .section-heading {
+            position: relative;
+            text-align: center;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            color: var(--primary-red);
+        }
+        
+        .section-heading::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-red);
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 60px 0;
+            gap: 30px;
+        }
+        
+        .action-button {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(178, 34, 34, 0.2);
+            text-align: center;
+            background-color: var(--white);
+            border: 2px solid var(--primary-red);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: var(--dark-gray);
+        }
+        
+        .action-button:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(178, 34, 34, 0.3);
+        }
+        
+        .action-button h3 {
+            color: var(--primary-red);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .action-button i {
+            font-size: 40px;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: var(--darker-red);
+        }
+        
+        .get-involved {
+            background-color: var(--light-red);
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 40px 0;
+            border: 2px solid var(--primary-red);
+        }
+        
+        .get-involved h3 {
+            color: var(--primary-red);
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .get-involved h4 {
+            color: #333333;
+        }
+        
+        footer {
+            position: relative;
+            background-color: var(--primary-red);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .footer-section {
+            width: 30%;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            color: var(--white);
+            border-bottom: 2px solid var(--white);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--white);
+            margin: 0 10px;
+            font-size: 24px;
+        }
+        
+        .social-icons a:hover {
+            color: var(--light-gray);
+        }
+        
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-button {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+            
+            .footer-section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <h1 class="logo">MatriSneh<span>Foundation.</span></h1>
+        <ul>
+          <li><a href="home page.html">Home</a></li>
+          <li><a href="#">AREA OF WORK <i class="fas fa-caret-down"></i></a>
+              <div class="dropdown-menu">
+                  <ul>
+                    <li><a href="education.html">EDUCATION</a></li>
+                    <li><a href="health.html">HEALTH</a></li>
+                    <li><a href="nutrition.html">NUTRITION</a></li>
+                    <li><a href="livelihood.html">LIVELIHOOD</a></li>
+                  </ul>
+              </div>
+          </li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contactus.html">Contact us</a></li>
+        </ul>
+    </div>
+   
+    <img src="Screenshot 2025-01-30 203533.png" alt="Foundation Banner" class="banner">
+    
+    <div class="container">
+        <main>
+            <h1 class="size"><b>Welcome to Matri Sneh Foundation</b></h1>
+            <hr color="#b22222" size="8">
+            
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .section {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        .section h2 {
+            color: #b22222;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .section p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .image-container {
+            text-align: center;
+            width: 100%;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 4px solid #b22222;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="section">
+            <h2>About Matri Sneh Foundation</h2>
+            <p>At Matri Sneh Foundation, we are committed to transforming lives through compassion, community engagement, and unwavering support. Every individual deserves the opportunity to thrive, regardless of their background or circumstances. Our initiatives provide essential resources to uplift the underprivileged.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Education: The Core of Our Mission</h2>
+            <p>Education is the most powerful tool for change. Our dedicated teachers reach underserved communities, ensuring that children without access to traditional schooling receive quality education. Beyond textbooks, we create safe, nurturing spaces where young minds can explore, question, and grow.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Holistic Development & Community Empowerment</h2>
+            <p>Our commitment extends beyond education. We focus on:
+            <ul>
+                <li><strong>Healthcare Programs</strong> - Providing essential medical care and awareness.</li>
+                <li><strong>Vocational Training</strong> - Equipping individuals with skills for self-reliance.</li>
+                <li><strong>Community Development</strong> - Strengthening networks for sustainable change.</li>
+            </ul>
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Our Impact</h2>
+            <p>Since our inception, Matri Sneh Foundation has positively impacted over 5,000 children and families across multiple regions. With your support, we aim to expand our reach and create lasting change.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Join Us</h2>
+            <p>Be part of our journey towards a more equitable world. Together, we can empower communities and build a future where everyone has the opportunity to thrive.</p>
+        </div>
+
+        <div class="image-container">
+            <img src="https://www.smilefoundationindia.org/wp-content/uploads/2023/03/Layer-109-1.png" alt="Matri Sneh Foundation">
+        </div>
+    </div>
+
+</body>
+</html>
+
+            
+            <div class="image-slider">
+                <div class="slide-track">
+                    <img src="https://cimages.milaap.org/milaap/image/upload/c_fill,g_faces,h_315,w_420/v1590216854/production/images/campaign/169150/1588715919117_ezdmki_1588716362_u6qbqb_1590216860.jpg" alt="Children learning">
+                    <img src="https://www.narayanseva.org/wp-content/uploads/2022/11/12-start-helping-poor.jpg" alt="Community support">
+                    <img src="https://savioursfoundation.org/wp-content/uploads/2021/03/poor-girl-studying.jpg" alt="Education support">
+                    <img src="https://www.indiaspend.com/h-upload/old_images/1500x900_342925-health-insurance1440.jpg" alt="Healthcare initiative">
+                    <!-- Duplicating images for continuous scroll effect -->
+                    <img src="https://cimages.milaap.org/milaap/image/upload/c_fill,g_faces,h_315,w_420/v1590216854/production/images/campaign/169150/1588715919117_ezdmki_1588716362_u6qbqb_1590216860.jpg" alt="Children learning">
+                    <img src="https://www.narayanseva.org/wp-content/uploads/2022/11/12-start-helping-poor.jpg" alt="Community support">
+                </div>
+            </div>
+            
+            <!-- Partners Section -->
+            <section class="partners-section">
+                <div class="container">
+                    <h2 class="section-heading" style="text-align: center;">Our Partners</h2>
+                
+                    <p style="text-align: center; margin-bottom: 30px;">We proudly collaborate with these organizations to expand our reach and maximize our impact.</p>
+                    
+                    <div class="partner-logos">
+                        <!-- Replace with actual partner logos -->
+                        <img src="rotary.png" alt="Partner 1" class="partner-logo">
+                        <img src="bharat.jpg" alt="Partner 2" class="partner-logo">
+                        <img src="lions.png" alt="Partner 3" class="partner-logo">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Separate Buttons for Donate and Volunteer -->
+            <h2 class="section-heading">Support Our Cause</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Join us in making a difference in the lives of those who need it most.</p>
+            
+            <div class="action-buttons">
+                <a href="Vform.html" class="action-button">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Make a Donation</h3>
+                    <p>Help us continue our mission with your generous contribution</p>
+                </a>
+                
+                <a href="volunteer.html" class="action-button">
+                    <i class="fas fa-users"></i>
+                    <h3>Become a Volunteer</h3>
+                    <p>Share your skills and time to support those in need</p>
+                </a>
+            </div>
+            
+            <section class="get-involved">
+                <h3>Get Involved</h3>
+                <p><h4>Join us in our mission to foster self-sufficiency and growth. Whether you want to volunteer, donate, or partner with us, your support can make a difference.</h4></p>
+                <button onclick="window.location.href='contactus.html';" class="btn">Contact Us</button>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@matrisneh.org</p>
+                    <p>Phone: +91 91011 64791</p>
+                    <p>Address: Kushiwali, PO Gaurkamath, Vadap, Karjat , Maharashtra 410201, India</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="home page.html" style="color: white;">Home</a></p>
+                    <p><a href="aboutus.html" style="color: white;">About Us</a></p>
+                    <p><a href="Vform.html" style="color: white;">Donate</a></p>
+                    <p><a href="forms.html" style="color: white;">Volunteer</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px;">&copy; 2025 Matri Sneh Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Add Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>
